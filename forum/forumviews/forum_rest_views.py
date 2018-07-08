@@ -34,7 +34,7 @@ from django.conf import settings
 import os
 
 from django.views.decorators.csrf import ensure_csrf_cookie
-
+from django.utils.decorators import method_decorator
 
 
 
@@ -44,6 +44,8 @@ class FrontendAppView(View):
     Serves the compiled frontend entry point (only works if you have run `yarn
     run build`).
     """
+
+    @method_decorator(ensure_csrf_cookie)
     def get(self, request):
         try:
             with open(os.path.join(settings.REACT_APP_DIR,'index.html')) as f:
