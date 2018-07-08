@@ -37,12 +37,13 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 
+
+
 class FrontendAppView(View):
     """
     Serves the compiled frontend entry point (only works if you have run `yarn
     run build`).
     """
-    @ensure_csrf_cookie
     def get(self, request):
         try:
             with open(os.path.join(settings.REACT_APP_DIR,'index.html')) as f:
