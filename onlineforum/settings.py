@@ -25,7 +25,7 @@ SECRET_KEY = 't6m-+_#g(+v2q@fg73779^j!tgj!qt(ym=d=dewmmp!zna7j_+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1",]
+ALLOWED_HOSTS = ["127.0.0.1","pavansai57-onlineforum.herokuapp.com"]
 
 
 # Application definition
