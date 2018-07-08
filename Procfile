@@ -1,1 +1,1 @@
-web: gunicorn onlineforum.wsgi --log-file -
+web: gunicorn onlineforum.wsgi --timeout 15 --keep-alive 30 --log-level debug
