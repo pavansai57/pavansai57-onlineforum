@@ -131,6 +131,7 @@ class DisplayPostComments extends Component{
 
     handleClose(event)
     {
+        event.preventDefault()
         if(this.state.closed==false)
         {
             this.doclose();

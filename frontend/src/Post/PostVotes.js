@@ -84,7 +84,7 @@ class PostVotes extends Component{
 
     changeVoteUp(event)
     {
-        event.preventDefault();
+        //event.preventDefault();
         
         //console.log(event);
         //console.log(event.target.classList)
@@ -118,7 +118,7 @@ class PostVotes extends Component{
 
     changeVoteDown(event)
     {
-        event.preventDefault();
+        //event.preventDefault();
         
         console.log(event);
         console.log(event.target.classList)
