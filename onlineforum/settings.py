@@ -174,15 +174,26 @@ JWT_AUTH = {
 }
 
 
-WEBPACK_LOADER = {
-    'DEFAULT': {
-            'BUNDLE_DIR_NAME': 'bundles/',
-            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.dev.json'),
-        }
-}
+# WEBPACK_LOADER = {
+#     'DEFAULT': {
+#             'BUNDLE_DIR_NAME': 'bundles/',
+#             'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.dev.json'),
+#         }
+# }
 
 #'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
 #'rest_framework.authentication.SessionAuthentication',
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 REACT_APP_DIR = os.path.join(BASE_DIR, STATIC_ROOT+"/bundles")
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "assets"),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+WEBPACK_LOADER = {
+    'DEFAULT': {
+            'BUNDLE_DIR_NAME': 'bundles/',
+            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.prod.json'),
+        }
+}
