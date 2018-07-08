@@ -34,7 +34,6 @@ pypiwin32==223
 pytest==3.3.1
 python-dateutil==2.6.1
 pytz==2018.5
-pywin32==223
 pyyaml==4.2b2
 requests==2.18.4
 simplegeneric==0.8.1
