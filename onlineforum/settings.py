@@ -96,13 +96,23 @@ WSGI_APPLICATION = 'onlineforum.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'forumdb',
+#         'HOST': 'pavansai57-onlineforum.cqjjdcjrpkab.us-east-2.rds.amazonaws.com',
+#         'USER':"pavansai57",
+#         'PASSWORD': "password"
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'forumdb',
-        'HOST': 'pavansai57-onlineforum.cqjjdcjrpkab.us-east-2.rds.amazonaws.com',
-        'USER':"pavansai57",
-        'PASSWORD': "password"
+        'NAME': 'heroku_04419f79e8112a7',
+        'HOST': 'us-cdbr-iron-east-04.cleardb.net',
+        'USER':"bba330565be61a",
+        'PASSWORD': "b8a618b0"
     }
 }
 
