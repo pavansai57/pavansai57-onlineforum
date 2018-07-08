@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<center>
+    <h1>Students</h1>
+<table class="table table-hover" border="1px" style="border-collapse:collapse" cellpadding="10px">
+    {% if "onlineapp.add_student" in user_permissions %}
+<a href="{% url 'onlineapp:add_student2' college_id %}">Add Student</a>
+    {% endif %}
+    <tr>
+        <th>
+            Student Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            total
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    {% for i in student %}
+<tr>
+    <td>
+        {{ i.name }}
+    </td>
+    <td>
+        {{ i.email }}
+    </td>
+    <td>
+        {{ i.mocktest1__total }}
+    </td>
+    {% if "onlineapp.change_student" and "onlineapp.change_mocktest1" in user_permissions %}
+    <td>
+        <a href="{% url 'onlineapp:update_student' college_id i.id %}">Edit</a>
+    </td>
+    {% endif %}
+    {% if "onlineapp.delete_student" and "onlineapp.delete_mocktest1" in user_permissions %}
+    <td>
+        <a href="{% url 'onlineapp:delete_student' college_id i.id %}">Delete</a>
+    </td>
+    {% endif %}
+</tr>
+    {% endfor %}
+</table>
+</center>
+<a class="btn btn-default" href="{% url 'onlineapp:logout' %}" style="position: absolute; top: 0px; right: 0px;">Logout</a>
+</body>
+</html>

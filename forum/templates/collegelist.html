@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>
+        College list
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<center>
+    <h1>Colleges</h1>
+    {% if "onlineapp.add_college" in user_permissions %}
+    <a class="btn btn-default" href="{% url 'onlineapp:add_college' %}">Add College</a>
+    {% endif %}
+<table class="table table-hover" border="1px solid" style="border-collapse:collapse" cellpadding="10px">
+<tr>
+    <th>
+        College Name
+    </th>
+    <th>
+        Acronym
+    </th>
+    <th>
+        Edit
+    </th>
+    <th>
+        Delete
+    </th>
+</tr>
+<tr>
+    {% for i in college%}
+    <td>
+        <a href="{% url 'onlineapp:student_detailview' i.id %}">{{ i.name }}</a>
+    </td>
+    <td>
+        {{ i.acronym }}
+    </td>
+    {% if "onlineapp.change_college" in user_permissions %}
+    <td>
+        <a class="btn btn-default" href="{% url 'onlineapp:update_college' i.id %}">Edit</a>
+    </td>
+    {% endif %}
+    {% if "onlineapp.delete_college" in user_permissions %}
+    <td>
+       <a class="btn btn-default" href="{% url 'onlineapp:delete_college' i.id %}">Delete</a>
+    </td>
+    {% endif %}
+</tr>
+    {%endfor%}
+</table>
+    <a class="btn btn-default" href="{% url 'onlineapp:logout' %}" style="position: absolute; top: 0px; right: 0px;">Logout</a>
+</center>
+</body>
+</html>
