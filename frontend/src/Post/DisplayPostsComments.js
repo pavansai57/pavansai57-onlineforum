@@ -62,6 +62,10 @@ class DisplayPostComments extends Component{
                     //     closed:true,
                     //     closename:"open",
                     // })
+                    thisComp.setState({
+                        closed:true,
+                        closename:"open",
+                    })
                     thisComp.state.closed=true;
                     thisComp.state.closename="open";
                     thisComp.loadcomments();
@@ -106,6 +110,10 @@ class DisplayPostComments extends Component{
                 //     closed:false,
                 //     closename:"close"
                 // })
+                thisComp.setState({
+                    closed:false,
+                    closename:"close"
+                })
                 thisComp.state.closed=false;
                 thisComp.closename="close";
                 thisComp.loadcomments();

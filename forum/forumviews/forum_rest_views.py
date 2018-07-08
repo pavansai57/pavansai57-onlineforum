@@ -67,7 +67,7 @@ class PostsSerializerView(APIView):
     #permission_classes = (IsAuthenticated,)
     #authentication_classes = (SessionAuthentication, BasicAuthentication)
     permission_classes = (IsAuthenticatedOrReadOnly,)
-    authentication_classes = (SessionAuthentication,)
+    #authentication_classes = (SessionAuthentication,)
     #permission_classes = (IsAuthenticated,)
     filter_backends=(DjangoFilterBackend,SearchFilter,OrderingFilter)
     search_fields= ['body','title','user__username']
