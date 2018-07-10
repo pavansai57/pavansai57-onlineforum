@@ -177,6 +177,7 @@ class App extends Component {
         }
         <div>
           <Switch>
+          <Route exact path="/" render={(props) => (    <Posts {...props} token={this.state.token} timestamp={new Date().toString()} />  )}/>
           <Route exact path="/forum/" render={(props) => (    <Posts {...props} token={this.state.token} timestamp={new Date().toString()} />  )}/>
           <Route exact  path="/forum/posts/:id" render={(props) => (    <div><DisplayPostComments {...props} token={this.state.token}/> {
             // this.state.is_loggedin?
