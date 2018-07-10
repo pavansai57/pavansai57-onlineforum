@@ -24,7 +24,7 @@ class ShowUser extends Component{
         .then(function(response){
             return response.json();
         }).then(function(responseData){
-            console.log(responseData);
+            //console.log(responseData);
             thisComp.setState({
                 user:responseData,
             })

@@ -31,7 +31,7 @@ class EditProfile extends Component{
         .then(function(response){
             return response.json();
         }).then(function(responseData){
-            console.log(responseData);
+            //console.log(responseData);
             if(responseData=="no such user")
             {
                 thisComp.props.history.push("/forum/login")
@@ -43,7 +43,7 @@ class EditProfile extends Component{
                 email:responseData.email,
                 profile:responseData.profile,
             })
-            console.log(thisComp.state)
+            //console.log(thisComp.state)
         }).catch(function(error){
             console.log("error",error)
         });
@@ -55,10 +55,10 @@ class EditProfile extends Component{
         
         const url=`/api/v1/forum/users/${this.props.userid}`;
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
-        console.log(data)
+        //console.log(token);
+        //console.log(data)
         let lookupOptions={
             method:"PUT",
             headers:{
@@ -80,7 +80,7 @@ class EditProfile extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 thisComp.props.history.push('/forum/myprofile')
             }).catch(function(error){
                 console.log("error",error)
@@ -91,14 +91,14 @@ class EditProfile extends Component{
     {
         event.preventDefault();
         //console.log(this.state);
-        console.log(this.props)
+        //console.log(this.props)
         this.createUser(this.state);
     }
 
     handleInputChange(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             [event.target.name]:event.target.value,
         })
@@ -108,7 +108,7 @@ class EditProfile extends Component{
     handleInputChangeProfile(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             profile:{[event.target.name]:event.target.value}
         })

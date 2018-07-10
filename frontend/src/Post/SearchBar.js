@@ -37,9 +37,9 @@ class SearchBar extends Component{
 
     handleInputChange(event)
     {
-        console.log(event)
+        //console.log(event)
     
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             [event.target.name]:event.target.value,
             name:event.target.value
@@ -51,9 +51,9 @@ class SearchBar extends Component{
 
     handleInputChange2(event)
     {
-        console.log(event)
+        //console.log(event)
     
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             search:event.target.value,
         })
@@ -64,7 +64,7 @@ class SearchBar extends Component{
 
     handleSearch(event)
     {
-        console.log(this.props.location);
+        //console.log(this.props.location);
         // fetch('/api/form-submit-url', {
         //     method: 'GET',
         //     body: data,
@@ -74,7 +74,7 @@ class SearchBar extends Component{
 
     test1(x)
     {
-        console.log(x)
+        //console.log(x)
 
     }
 

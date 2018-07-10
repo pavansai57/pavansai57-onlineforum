@@ -40,13 +40,13 @@ class UserComments extends Component{
 
     loadcomments()
     {
-        console.log(this);
+        //console.log(this);
         const url=`/api/v1/forum/users/${this.props.match.params.id}/comments`;
 
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
 
         let lookupOptions={};
         if(token!=undefined && token!=null)
@@ -75,10 +75,10 @@ class UserComments extends Component{
         .then(function(response){
             return response.json();
         }).then(function(responseData){
-            console.log(responseData);
-            console.log(responseData.comments)
-            console.log(thisComp.state.token)
-            console.log(thisComp.props.token)
+            // console.log(responseData);
+            // console.log(responseData.comments)
+            // console.log(thisComp.state.token)
+            // console.log(thisComp.props.token)
             thisComp.setState({
                 comments:responseData,
             })
@@ -86,7 +86,7 @@ class UserComments extends Component{
            //console.log(JSON.stringify(thisComp.state.post))
         }).catch(function(error){
             console.log("error",error)
-            console.log(thisComp.props.history)
+            //console.log(thisComp.props.history)
             //thisComp.props.history.goBack()
         });
     }
@@ -98,7 +98,7 @@ class UserComments extends Component{
     componentWillMount()
     {
         let token1=localStorage.getItem('usertoken');
-        console.log(token1);
+        //console.log(token1);
         if(token1!= null && token1!= undefined)
         {
             this.setState({ is_loggedin:true, token:token1 });
@@ -111,7 +111,7 @@ class UserComments extends Component{
     }
 
     render(){
-        console.log(this.state.comments)
+        //console.log(this.state.comments)
         return(
             this.state.comments?
             <div>

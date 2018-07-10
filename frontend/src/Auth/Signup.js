@@ -17,10 +17,10 @@ class Signup extends Component{
     {
         const url='/api/v1/signup';
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
-        console.log(data)
+        //console.log(token);
+        //console.log(data)
         let lookupOptions={
             method:"Post",
             headers:{
@@ -35,7 +35,7 @@ class Signup extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(JSON.stringify(responseData)+"  Asd")
+                //console.log(JSON.stringify(responseData)+"  Asd")
                 if(responseData.email)
                 {
                     alert("enter valid email")
@@ -52,7 +52,7 @@ class Signup extends Component{
                     thisComp.props.history.push('/forum')
                 }
             }).catch(function(error){
-                console.log("error",error)
+                //console.log("error",error)
                 alert(error)
             });
     }
@@ -61,14 +61,14 @@ class Signup extends Component{
     {
         event.preventDefault();
         //console.log(this.state);
-        console.log(this.props)
+        //console.log(this.props)
         this.createUser(this.state);
     }
 
     handleInputChange(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             [event.target.name]:event.target.value,
         })
@@ -78,7 +78,7 @@ class Signup extends Component{
     handleInputChangeProfile(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             profile:{[event.target.name]:event.target.value}
         })

@@ -20,7 +20,7 @@ class UserPosts extends Component{
 
     loadPosts()
     {
-        console.log(this.props)
+        //console.log(this.props)
         const url=`/api/v1/forum/users/${this.props.match.params.id}/posts`+this.props.location.search;
         //console.log(url+"3333333333333333")
         let lookupOptions={
@@ -34,7 +34,7 @@ class UserPosts extends Component{
         .then(function(response){
             return response.json();
         }).then(function(responseData){
-            console.log(responseData);
+            //console.log(responseData);
             thisComp.setState({
                 posts: responseData.results,
                 next_page_number:responseData.next_page_number,
@@ -52,7 +52,7 @@ class UserPosts extends Component{
     {
         const url='/api/v1/forum';
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let data={
             "title": "createposts",
             "body": "hi hello createposts",
@@ -74,7 +74,7 @@ class UserPosts extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData)
+                //console.log(responseData)
             }).catch(function(error){
                 console.log("error",error)
             });
@@ -91,8 +91,8 @@ class UserPosts extends Component{
 
     render()
     {
-        console.log(this)
-        console.log(this.props.location.pathname)
+        //console.log(this)
+        //console.log(this.props.location.pathname)
         return(
             <div>
                 {

@@ -15,7 +15,7 @@ class Search extends Component{
     handleInputChange(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             [event.target.name]:event.target.value,
         })

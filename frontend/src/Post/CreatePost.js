@@ -27,9 +27,9 @@ class CreatePost extends Component{
     {
         const url='/api/v1/forum';
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
         let lookupOptions={
             method:"Post",
             headers:{
@@ -47,7 +47,7 @@ class CreatePost extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 thisComp.props.history.push('/forum')
             }).catch(function(error){
                 console.log("error",error)
@@ -72,7 +72,7 @@ class CreatePost extends Component{
     handleInputChange(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             [event.target.name]:event.target.value,
         })
@@ -82,7 +82,7 @@ class CreatePost extends Component{
     handleInputChange2(event)
     {
         //event.preventDefault();
-        console.log(event);
+        //console.log(event);
         this.setState({
             body:event
         })

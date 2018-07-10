@@ -76,8 +76,8 @@ class App extends Component {
     localStorage.setItem('username',user)
     localStorage.setItem('mod',true)
     localStorage.setItem('userid',userid)
-    console.log(token1);
-    console.log(this.state.is_loggedin);
+    //console.log(token1);
+    //console.log(this.state.is_loggedin);
     //window.location.reload()
   }
 
@@ -97,12 +97,12 @@ class App extends Component {
     let user=localStorage.getItem('username')
     let mod=localStorage.getItem('mod')
     let userid=localStorage.getItem('userid')
-    console.log(token1);
+    //console.log(token1);
     if(token1!= null && token1!= undefined)
     {
       this.setState({ is_loggedin:true, token:token1, username:user,mod:mod,userid:userid });
     }
-    console.log(this)
+    //console.log(this)
   }
 
 

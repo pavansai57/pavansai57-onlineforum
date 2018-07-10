@@ -33,7 +33,7 @@ class Myprofile extends Component{
         .then(function(response){
             return response.json();
         }).then(function(responseData){
-            console.log(responseData);
+            //console.log(responseData);
              if(responseData=="no such user")
              {
                  thisComp.props.history.push('/forum/login')
@@ -58,7 +58,7 @@ class Myprofile extends Component{
         let user=localStorage.getItem('username')
         let mod=localStorage.getItem('mod')
         let userid=localStorage.getItem('userid')
-        console.log(token1);
+        //console.log(token1);
         if(token1!= null && token1!= undefined)
         {
             this.setState({ is_loggedin:true, token:token1, username:user,mod:mod,userid:userid });

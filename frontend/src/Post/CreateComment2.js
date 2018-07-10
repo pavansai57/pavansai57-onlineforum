@@ -27,12 +27,12 @@ class CreateComment2 extends Component{
 
     createComment(data)
     {
-        console.log(this.props);
+        //console.log(this.props);
         const url=`/api/v1/forum/posts/${this.props.parameters.match.params.id}/comments`
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
         let lookupOptions={
             method:"Post",
             headers:{
@@ -51,7 +51,7 @@ class CreateComment2 extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 //thisComp.props.history.push(`/forum/posts/${thisComp.props.match.params.id}/`)
                 window.location.reload()
             }).catch(function(error){
@@ -76,7 +76,7 @@ class CreateComment2 extends Component{
     handleInputChange(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             [event.target.name]:event.target.value,
         })
@@ -86,7 +86,7 @@ class CreateComment2 extends Component{
     handleInputChange2(event)
     {
         //event.preventDefault();
-        console.log(event);
+        //console.log(event);
         this.setState({
             text:event
         })

@@ -40,9 +40,9 @@ class DisplayComment extends Component{
         let thisparent=this.props.parentstate
         const url=`/api/v1/forum/posts/${this.props.comment.post}/comments/${this.props.comment.id}/accept`;
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
         let lookupOptions={
             method:"Post",
             headers:{
@@ -59,7 +59,7 @@ class DisplayComment extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 window.location.reload()
                 // thisparent.loadcomments();
                 // thisComp.setState({
@@ -82,9 +82,9 @@ class DisplayComment extends Component{
         let thisparent=this.props.parentstate
         const url=`/api/v1/forum/posts/${this.props.comment.post}/comments/${this.props.comment.id}/unaccept`;
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
         let lookupOptions={
             method:"Post",
             headers:{
@@ -101,7 +101,7 @@ class DisplayComment extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 // thisparent.loadcomments();
                 // thisComp.setState({
                 //     accepted:false,
@@ -148,14 +148,14 @@ class DisplayComment extends Component{
                 edit:false
             })
         }
-        console.log(this.state.edit)
-        console.log(this.state)
+        //console.log(this.state.edit)
+        //console.log(this.state)
     }
 
 
     handleDelete1(event)
     {
-        console.log("Asd");
+        //console.log("Asd");
         event.preventDefault();
         this.setState({
             delete:true,
@@ -166,9 +166,9 @@ class DisplayComment extends Component{
             let thisparent=this.props.parentstate
             const url=`/api/v1/forum/posts/${this.props.comment.post}/comments/${this.props.comment.id}`;
             let csrftoken=cookie.load('csrftoken');
-            console.log(csrftoken);
+            //console.log(csrftoken);
             let token=localStorage.getItem('usertoken');
-            console.log(token);
+            //console.log(token);
             let lookupOptions={
                 method:"Delete",
                 headers:{
@@ -185,7 +185,7 @@ class DisplayComment extends Component{
                 .then(function(response){
                     return response.json()
                 }).then(function(responseData){
-                    console.log(responseData+"  Asd")
+                    //console.log(responseData+"  Asd")
                     //window.location.reload()
                     thisparent.loadcomments();
                 }).catch(function(error){
@@ -197,7 +197,7 @@ class DisplayComment extends Component{
             }
         }
         else{
-                console.log("Asdddddddddddddddd")
+                //console.log("Asdddddddddddddddd")
         }
     }
 
@@ -207,7 +207,7 @@ class DisplayComment extends Component{
 
 
     componentDidMount(){
-        console.log(this.props);
+        //console.log(this.props);
     }
     
 render(){

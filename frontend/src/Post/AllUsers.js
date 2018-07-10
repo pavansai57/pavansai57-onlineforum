@@ -17,9 +17,9 @@ class AllUsers extends Component{
         
         const url='/api/v1/forum/users';
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
         let lookupOptions={
             method:"GET",
             headers:{
@@ -35,17 +35,17 @@ class AllUsers extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 thisComp.setState({
                     users:responseData,
                 })
                 //thisComp.props.history.push('/forum')
             }).catch(function(error){
-                console.log("error",error)
+                //console.log("error",error)
             });
         }
         else{
-            console.log("not found");
+            //console.log("not found");
         }
 
     }

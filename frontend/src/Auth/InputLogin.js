@@ -13,7 +13,7 @@ class InputEx extends Component{
     handleInputChange(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             [event.target.name]:event.target.value,
         })
@@ -36,19 +36,19 @@ class InputEx extends Component{
       
       submit = (e) => {
         const {name,pass} = this.state;
-        console.log(name);
-        console.log(pass);
-        console.log(JSON.stringify({
-          username: `${name}`,
-          password: `${pass}`,
-        }))
+        // console.log(name);
+        // console.log(pass);
+        // console.log(JSON.stringify({
+        //   username: `${name}`,
+        //   password: `${pass}`,
+        // }))
         fetch('/api/v1/login',{ method: 'post', headers:{ "Content-type": "application/json; charset=UTF-8"},
         body:JSON.stringify({
           username: `${name}`,
           password: `${pass}`,
         })
-        }).then(res =>{ console.log(res); return res.json();}).then((myjson) => {
-          console.log(myjson);
+        }).then(res =>{ return res.json();}).then((myjson) => {
+          //console.log(myjson);
           if(myjson.token)
            {
               this.props.login(myjson.token,myjson.user.username,myjson.user.groups,myjson.user.id);

@@ -46,12 +46,12 @@ class PostVotes extends Component{
     {
 
         const url=`/api/v1/forum/posts/${this.props.postid}/vote?${vote}`
-        console.log(this.props.postid)
-        console.log(url)
+        //console.log(this.props.postid)
+        //console.log(url)
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
 
         let lookupOptions={
             method:"Get",
@@ -64,14 +64,14 @@ class PostVotes extends Component{
         }
 
         let thisComp=this
-        console.log(url)
+        //console.log(url)
         if(csrftoken!=undefined && token!=undefined && token!=null)
         {
             fetch(url,lookupOptions)
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 //thisComp.props.history.push(`/forum/posts/${thisComp.props.match.params.id}/`)
             }).catch(function(error){
                 console.log("error",error)
@@ -120,8 +120,8 @@ class PostVotes extends Component{
     {
         event.preventDefault();
         
-        console.log(event);
-        console.log(event.target.classList)
+        //console.log(event);
+        //console.log(event.target.classList)
         if(this.state.colordown=="black")
         {
             if(this.state.colorup=="orange")

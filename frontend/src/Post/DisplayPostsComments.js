@@ -30,16 +30,16 @@ class DisplayPostComments extends Component{
         this.handleEdit=this.handleEdit.bind(this)
         this.handleDelete1=this.handleDelete1.bind(this)
         this.handleClose=this.handleClose.bind(this)
-        console.log(JSON.stringify(this.props)+"1111111111111")
+        //console.log(JSON.stringify(this.props)+"1111111111111")
     }
 
     doclose()
     {
             const url=`/api/v1/forum/posts/${this.state.post.id}/close`;
             let csrftoken=cookie.load('csrftoken');
-            console.log(csrftoken);
+            //console.log(csrftoken);
             let token=localStorage.getItem('usertoken');
-            console.log(token);
+            //console.log(token);
             let lookupOptions={
                 method:"Post",
                 headers:{
@@ -56,7 +56,7 @@ class DisplayPostComments extends Component{
                 .then(function(response){
                     return response.json()
                 }).then(function(responseData){
-                    console.log(responseData+"  Asd")
+                    //console.log(responseData+"  Asd")
                     //thisComp.props.history.push('/forum')
                     // thisComp.setState({
                     //     closed:true,
@@ -85,9 +85,9 @@ class DisplayPostComments extends Component{
     {
         const url=`/api/v1/forum/posts/${this.state.post.id}/open`;
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
         let lookupOptions={
             method:"Post",
             headers:{
@@ -104,7 +104,7 @@ class DisplayPostComments extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 //thisComp.props.history.push('/forum')
                 // thisComp.setState({
                 //     closed:false,
@@ -157,13 +157,13 @@ class DisplayPostComments extends Component{
                 edit:false
             })
         }
-        console.log(this.state.edit)
-        console.log(this.state)
+        //console.log(this.state.edit)
+        //console.log(this.state)
     }
 
     handleDelete1(event)
     {
-        console.log("Asd");
+        //console.log("Asd");
         event.preventDefault();
         this.setState({
             delete:true,
@@ -173,9 +173,9 @@ class DisplayPostComments extends Component{
         {
             const url=`/api/v1/forum/posts/${this.state.post.id}`;
             let csrftoken=cookie.load('csrftoken');
-            console.log(csrftoken);
+            //console.log(csrftoken);
             let token=localStorage.getItem('usertoken');
-            console.log(token);
+            //console.log(token);
             let lookupOptions={
                 method:"Delete",
                 headers:{
@@ -192,7 +192,7 @@ class DisplayPostComments extends Component{
                 .then(function(response){
                     return response.json()
                 }).then(function(responseData){
-                    console.log(responseData+"  Asd")
+                    //console.log(responseData+"  Asd")
                     thisComp.props.history.push('/forum')
                 }).catch(function(error){
                     console.log("error",error)
@@ -203,19 +203,19 @@ class DisplayPostComments extends Component{
             }
         }
         else{
-                console.log("Asdddddddddddddddd")
+                //console.log("Asdddddddddddddddd")
         }
     }
 
     loadPostComments()
     {
-        console.log(this);
+        //console.log(this);
         const url=`/api/v1/forum/posts/${this.props.match.params.id}`;
 
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
 
         let lookupOptions={};
         if(token!=undefined && token!=null)
@@ -244,10 +244,10 @@ class DisplayPostComments extends Component{
         .then(function(response){
             return response.json();
         }).then(function(responseData){
-            console.log(responseData);
-            console.log(responseData.comments)
-            console.log(thisComp.state.token)
-            console.log(thisComp.props.token)
+            //console.log(responseData);
+            //console.log(responseData.comments)
+            //console.log(thisComp.state.token)
+            //console.log(thisComp.props.token)
             thisComp.setState({
                 //comments:responseData.comments,
                 post: responseData,
@@ -271,20 +271,20 @@ class DisplayPostComments extends Component{
            //console.log(JSON.stringify(thisComp.state.post))
         }).catch(function(error){
             console.log("error",error)
-            console.log(thisComp.props.history)
+            //console.log(thisComp.props.history)
             //thisComp.props.history.goBack()
         });
     }
 
     loadcomments()
     {
-        console.log(this);
+        //console.log(this);
         const url=`/api/v1/forum/posts/${this.props.match.params.id}/comments`;
 
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
 
         let lookupOptions={};
         if(token!=undefined && token!=null)
@@ -313,10 +313,10 @@ class DisplayPostComments extends Component{
         .then(function(response){
             return response.json();
         }).then(function(responseData){
-            console.log(responseData);
-            console.log(responseData.comments)
-            console.log(thisComp.state.token)
-            console.log(thisComp.props.token)
+            //console.log(responseData);
+            //console.log(responseData.comments)
+            //console.log(thisComp.state.token)
+            //console.log(thisComp.props.token)
             thisComp.setState({
                 comments:responseData,
             })
@@ -338,7 +338,7 @@ class DisplayPostComments extends Component{
            //console.log(JSON.stringify(thisComp.state.post))
         }).catch(function(error){
             console.log("error",error)
-            console.log(thisComp.props.history)
+            //console.log(thisComp.props.history)
             //thisComp.props.history.goBack()
         });
     }
@@ -350,7 +350,7 @@ class DisplayPostComments extends Component{
     componentWillMount()
     {
         let token1=localStorage.getItem('usertoken');
-        console.log(token1);
+        //console.log(token1);
         if(token1!= null && token1!= undefined)
         {
             this.setState({ is_loggedin:true, token:token1 });
@@ -368,7 +368,7 @@ class DisplayPostComments extends Component{
         owner=this.state.post.owner:null
         if (owner!=null)
         {
-            console.log(owner)
+            //console.log(owner)
         }
         return(
             this.state.post?

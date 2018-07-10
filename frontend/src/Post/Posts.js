@@ -24,7 +24,7 @@ class Posts extends Component {
 
     loadPosts()
     {
-        console.log(this.props)
+        //console.log(this.props)
         const url='/api/v1/forum'+this.props.location.search;
         let lookupOptions={
             method:"GET",
@@ -37,7 +37,7 @@ class Posts extends Component {
         .then(function(response){
             return response.json();
         }).then(function(responseData){
-            console.log(responseData);
+            //console.log(responseData);
             thisComp.setState({
                 posts: responseData.results,
                 next_page_number:responseData.next_page_number,
@@ -55,7 +55,7 @@ class Posts extends Component {
     {
         const url='/api/v1/forum';
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let data={
             "title": "createposts",
             "body": "hi hello createposts",
@@ -96,7 +96,7 @@ class Posts extends Component {
     {
         //searchstring=""
         let searchstring=""
-        console.log(this.props.location.search)
+        //console.log(this.props.location.search)
         if(this.props.location.search[0]=='?')
         {
             searchstring=this.props.location.search.slice(1,)
@@ -106,15 +106,15 @@ class Posts extends Component {
         }
         let searchdatanext=queryString.parse(searchstring)
         let searchdataprevious=queryString.parse(searchstring)
-        console.log(searchdatanext.page)
-        console.log(searchdataprevious.page)
+        //console.log(searchdatanext.page)
+        //console.log(searchdataprevious.page)
         searchdatanext.page=this.state.next_page_number
         searchdataprevious.page=this.state.previous_page_number
         let nextquerystring=queryString.stringify(searchdatanext)
         let previousquerystring=queryString.stringify(searchdataprevious)
         //nextquerystring=nextquerystring.slice(3,)
-        console.log(nextquerystring)
-        console.log(previousquerystring)
+        //console.log(nextquerystring)
+        //console.log(previousquerystring)
         // var str="";
         // for (var key in this.state) {
         //     if (str != "") {

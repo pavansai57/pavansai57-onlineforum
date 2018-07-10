@@ -29,9 +29,9 @@ class EditPost extends Component{
         let parentstate=this.props.parentstate
         const url=`/api/v1/forum/posts/${this.props.post.id}`;
         let csrftoken=cookie.load('csrftoken');
-        console.log(csrftoken);
+        //console.log(csrftoken);
         let token=localStorage.getItem('usertoken');
-        console.log(token);
+        //console.log(token);
         let lookupOptions={
             method:"PUT",
             headers:{
@@ -49,7 +49,7 @@ class EditPost extends Component{
             .then(function(response){
                 return response.json()
             }).then(function(responseData){
-                console.log(responseData+"  Asd")
+                //console.log(responseData+"  Asd")
                 parentstate.loadPostComments();
                 //window.location.reload()
             }).catch(function(error){
@@ -75,7 +75,7 @@ class EditPost extends Component{
     handleInputChange(event)
     {
         event.preventDefault();
-        console.log(event.target.name,event.target.value);
+        //console.log(event.target.name,event.target.value);
         this.setState({
             [event.target.name]:event.target.value,
         })
