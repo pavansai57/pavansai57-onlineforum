@@ -213,12 +213,12 @@ class DisplayComment extends Component{
 render(){
     return(
         this.props.comment?
-        <div>
-        <div className="container" style={{border:"1px solid"}}>
-            <table cellspacing="2px">
+        <div class="container">
+        <div className="container table-responsive" style={{border:"1px solid"}}>
+            <table>
                 <tr>
                     <td><span><CommentVotes postid={this.props.comment.post} commentid={this.props.comment.id} owner={this.props.comment.owner} votes={this.props.comment.votes} voted={this.props.comment.voted} accepted={this.props.comment.accepted}/></span></td>
-                    <td className="container"><div >{renderHTML(this.props.comment.text)}</div></td>
+                    <td><div class="ql-snow ql-disabled" ><div className="ql-editor">{renderHTML(this.props.comment.text)}</div></div></td>
                 </tr>
             </table>
             {/* <span style={{float:'right'}}>by: <Link to={`/forum/users/${this.props.comment.userdetail.id}`} >{this.props.comment.userdetail.username}</Link></span> */}

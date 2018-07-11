@@ -374,11 +374,14 @@ class DisplayPostComments extends Component{
             this.state.post?
         <div class="container" >
             <h1>{this.state.post.title}</h1> 
-            <div clasName="container" style={{border:"1px solid"}}>
+            <div className="container" style={{border:"1px solid"}}>
             <table>
                 <tr >
                 <td  ><PostVotes votes={this.state.post.votes} owner={this.state.post.owner} voted={this.state.post.voted} postid={this.state.post.id} /></td>
-                <td ><div id="wrap-post">{renderHTML(this.state.post.body)}</div></td>
+                <td ><div class="ql-snow ql-disabled"><div id="wrap-post" class="ql-editor">{renderHTML(this.state.post.body)}</div></div>
+                <div>
+                {/* <ReactQuill modules={{}} readOnly={true}  id="title" name="text2" class="form-control" value={this.state.post.body}/> */}
+                </div></td>
                 </tr>
             </table>
             </div>
