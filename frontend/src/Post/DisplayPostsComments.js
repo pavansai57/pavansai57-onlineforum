@@ -373,7 +373,7 @@ class DisplayPostComments extends Component{
         return(
             this.state.post?
         <div class="container" >
-            <h2>{this.state.post.title}</h2> 
+            <h3>{this.state.post.title}</h3> 
             <div className="container table-responsive" style={{border:"1px solid"}}>
             <table>
                 <tr >
