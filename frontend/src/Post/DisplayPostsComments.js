@@ -373,8 +373,8 @@ class DisplayPostComments extends Component{
         return(
             this.state.post?
         <div class="container" >
-            <h1>{this.state.post.title}</h1> 
-            <div className="container" style={{border:"1px solid"}}>
+            <h2>{this.state.post.title}</h2> 
+            <div className="container table-responsive" style={{border:"1px solid"}}>
             <table>
                 <tr >
                 <td  ><PostVotes votes={this.state.post.votes} owner={this.state.post.owner} voted={this.state.post.voted} postid={this.state.post.id} /></td>

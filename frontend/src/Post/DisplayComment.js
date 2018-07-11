@@ -214,7 +214,7 @@ render(){
     return(
         this.props.comment?
         <div class="container">
-        <div className="container table-responsive" style={{border:"1px solid"}}>
+        <div className="table-responsive" style={{border:"1px solid"}}>
             <table>
                 <tr>
                     <td><span><CommentVotes postid={this.props.comment.post} commentid={this.props.comment.id} owner={this.props.comment.owner} votes={this.props.comment.votes} voted={this.props.comment.voted} accepted={this.props.comment.accepted}/></span></td>
