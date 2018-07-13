@@ -104,7 +104,8 @@ class EditComment extends Component{
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
                     <div class="form-group">
-                        <label for="text" >Post Title</label>
+                        <br/>
+                        <label for="text" >Your Comment</label>
                         {/* <input type="text" id="text" name="text" class="form-control" placeholder="comment" onChange={this.handleInputChange} value={this.state.text}></input> */}
                         <ReactQuill modules={EditComment.modules} formats={EditComment.formats}  id="title" name="text" class="form-control" placeholder="Comment" onChange={this.handleInputChange2} value={this.state.text}/>
                     </div>

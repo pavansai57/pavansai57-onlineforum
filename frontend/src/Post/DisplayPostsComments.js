@@ -23,6 +23,8 @@ class DisplayPostComments extends Component{
         delete:false,
         closed:false,
         closename:"close",
+        loadingpost:0,
+        loadingcomments:0,
     }
     constructor(props)
     {
@@ -319,6 +321,7 @@ class DisplayPostComments extends Component{
             //console.log(thisComp.props.token)
             thisComp.setState({
                 comments:responseData,
+                loadingcomments:1,
             })
             if( thisComp.state.post.closed==true)
             {   
@@ -427,8 +430,8 @@ class DisplayPostComments extends Component{
             <label for="comments">Comments {this.state.post.closed?"[CLOSED]":""}</label>
             <div id="comments" class="container">
                 {
-            this.state.comments.map((comment,index)=>{
-                    return(<DisplayComment comment={comment} key={index} postowner={this.state.post.owner} loadcomments={this.loadcomments} parentstate={this}/>) })   
+            this.state.comments.length>0?this.state.comments.map((comment,index)=>{
+                    return(<DisplayComment comment={comment} key={index} postowner={this.state.post.owner} loadcomments={this.loadcomments} parentstate={this}/>) }):this.state.loadingcomments==0?<p>Loading..</p>:<p>No comments</p>   
                 } 
             </div>
             </div>
@@ -437,7 +440,7 @@ class DisplayPostComments extends Component{
                 <CreateComment2 parameters={this.props}/>
                 :""
             }
-        </div>:"");
+        </div>:<p>Loading...</p>);
     }
 }
 

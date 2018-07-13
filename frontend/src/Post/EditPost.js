@@ -106,6 +106,7 @@ class EditPost extends Component{
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
                     <div class="form-group">
+                        <br/>
                         <label for="title" >Post Title</label>
                         <input type="text" id="title" name="title" class="form-control" placeholder="Title" onChange={this.handleInputChange} value={this.state.title}></input>
                     </div>

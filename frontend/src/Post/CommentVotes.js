@@ -106,29 +106,33 @@ class CommentVotes extends Component{
         //console.log(event);
         //console.log(event.target.classList)
         //console.log(this.props.voted+"qwerryy");
-        if(this.state.colorup=="black")
-        {   
-            if(this.state.colordown=="orange")
-            {
-                this.state.votes=this.state.votes+2;
-            }
-            else{
-                this.state.votes=this.state.votes+1;
-            }
-            this.setState({
-                colorup:"orange",
-                colordown:"black"
-            })
-
-            this.dovote("upvote")
-        }
-        else
+        let token=localStorage.getItem('usertoken');
+        if(token!=null && token!=undefined)
         {
-            this.state.votes=this.state.votes-1;
-            this.setState({
-                colorup:"black",
-            })
-            this.dovote("unvote")
+            if(this.state.colorup=="black")
+            {   
+                if(this.state.colordown=="orange")
+                {
+                    this.state.votes=this.state.votes+2;
+                }
+                else{
+                    this.state.votes=this.state.votes+1;
+                }
+                this.setState({
+                    colorup:"orange",
+                    colordown:"black"
+                })
+
+                this.dovote("upvote")
+            }
+            else
+            {
+                this.state.votes=this.state.votes-1;
+                this.setState({
+                    colorup:"black",
+                })
+                this.dovote("unvote")
+            }
         }
     }
 
@@ -138,29 +142,33 @@ class CommentVotes extends Component{
         
         //console.log(event);
         //console.log(event.target.classList)
-        if(this.state.colordown=="black")
+        let token=localStorage.getItem('usertoken');
+        if(token!=null && token!=undefined)
         {
-            if(this.state.colorup=="orange")
+            if(this.state.colordown=="black")
             {
-                this.state.votes=this.state.votes-2;
-            }
-            else{
-                this.state.votes=this.state.votes-1;
-            }
+                if(this.state.colorup=="orange")
+                {
+                    this.state.votes=this.state.votes-2;
+                }
+                else{
+                    this.state.votes=this.state.votes-1;
+                }
 
-            this.setState({
-                colordown:"orange",
-                colorup:"black"
-            })
-            this.dovote("downvote")
-        }
-        else
-        {
-            this.state.votes=this.state.votes+1;
-            this.setState({
-                colordown:"black"
-            })
-            this.dovote("unvote")
+                this.setState({
+                    colordown:"orange",
+                    colorup:"black"
+                })
+                this.dovote("downvote")
+            }
+            else
+            {
+                this.state.votes=this.state.votes+1;
+                this.setState({
+                    colordown:"black"
+                })
+                this.dovote("unvote")
+            }
         }
     }
 
