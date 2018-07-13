@@ -13,6 +13,7 @@ class UserPosts extends Component{
         previous_page_number:null,
         has_next:null,
         has_previous:null,
+        loadingposts:0,
     }
     constructor(props){
         super(props);
@@ -41,6 +42,7 @@ class UserPosts extends Component{
                 previous_page_number:responseData.previous_page_number,
                 has_next:responseData.has_next,
                 has_previous:responseData.has_previous,
+                loadingposts:1,
             })
 
         }).catch(function(error){
@@ -116,7 +118,7 @@ class UserPosts extends Component{
                 }
                 {
                     this.state.posts.length>0 ? this.state.posts.map((post,index)=>{
-                    return(<DisplayPosts post={post} key={index}/>) }) :<p> no posts </p>
+                    return(<DisplayPosts post={post} key={index}/>) }) :this.state.loadingposts==0?<p>Loading...</p>:<p> no posts </p>
                 }
             </div>
         );

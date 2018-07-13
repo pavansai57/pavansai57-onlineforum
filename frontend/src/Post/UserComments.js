@@ -23,6 +23,7 @@ class UserComments extends Component{
         delete:false,
         closed:false,
         closename:"close",
+        loadingcomments:0,
     }
     constructor(props)
     {
@@ -81,6 +82,7 @@ class UserComments extends Component{
             // console.log(thisComp.props.token)
             thisComp.setState({
                 comments:responseData,
+                loadingcomments:1,
             })
 
            //console.log(JSON.stringify(thisComp.state.post))
@@ -123,7 +125,7 @@ class UserComments extends Component{
                 } 
             </div>
             </div>
-            :<div>No Comments</div>
+            :this.state.loadingcomments==0?<div>Loading..</div>:<div>No Comments</div>
         );
     }
 }

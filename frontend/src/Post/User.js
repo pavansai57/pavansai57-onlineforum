@@ -5,6 +5,7 @@ class ShowUser extends Component{
     state={
         user:null,
         token:null,
+        loadinguser:0,
     }
     constructor(props)
     {
@@ -27,6 +28,7 @@ class ShowUser extends Component{
             //console.log(responseData);
             thisComp.setState({
                 user:responseData,
+                loadinguser:1,
             })
         }).catch(function(error){
             console.log("error",error)
@@ -56,7 +58,7 @@ class ShowUser extends Component{
                 <tr><td>Bio</td><td>{this.state.user.profile.bio}</td></tr>
                 </tbody>
                 </table>
-            </div>:""
+            </div>:this.state.loadinguser==0?<p>Loading...</p>:<p>Cannot load</p>
 
         );
     }
