@@ -16,7 +16,7 @@ class UserComments extends Component{
 
     state={
         post:null,
-        comments:null,
+        comments:[],
         token:null,
         is_loggedin:false,
         edit:false,
@@ -115,7 +115,7 @@ class UserComments extends Component{
     render(){
         //console.log(this.state.comments)
         return(
-            this.state.comments?
+            this.state.comments.length>0?
             <div>
             <label for="comments">Comments</label>
             <div id="comments" class="container">
@@ -125,7 +125,7 @@ class UserComments extends Component{
                 } 
             </div>
             </div>
-            :this.state.loadingcomments==0?<div>Loading..</div>:<div>No Comments</div>
+            :this.state.loadingcomments==0?<div>Loading...</div>:<div>No Comments</div>
         );
     }
 }
