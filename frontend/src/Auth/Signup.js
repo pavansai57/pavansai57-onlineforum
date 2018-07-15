@@ -42,7 +42,7 @@ class Signup extends Component{
                 }
                 else if(responseData.username)
                 {
-                    alert("enter valid username")
+                    alert("username exists or enter valid name")
                 }
                 else if(responseData.password)
                 {

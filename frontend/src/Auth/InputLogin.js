@@ -56,7 +56,7 @@ class InputEx extends Component{
               //console.log(this)
            }
           else{
-            alert("wrong user anme or password")
+            alert("wrong user name or password")
           }
         })
         .catch(function(error){
