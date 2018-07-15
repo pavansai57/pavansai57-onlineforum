@@ -83,10 +83,23 @@ class PostsSerializerView(APIView):
         # else:
         #     posts=Post.objects.all()
         posts=Post.objects.all()
+
+        if self.request.GET.get('sort'):
+            if self.request.GET.get('sort')=="unanswered":
+                posts=posts.filter(accepted=False)
+            elif self.request.GET.get('sort')=="answered":
+                posts=posts.filter(accepted=True)
+            elif self.request.GET.get('sort')=="closed":
+                posts=posts.filter(closed=True)
+            elif self.request.GET.get("sort")=="open":
+                posts=posts.filter(closed=False)
+
+
         if self.request.GET.get('filter'):
             self.search_fields=[self.request.GET.get('filter')]
         #ipdb.set_trace()
         posts=self.filter_queryset(posts)
+
 
         paginator = Paginator(posts, 5)
         page = request.GET.get('page')

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import CreateComment from './CreateComment'
-import CreateComment2 from './CreateComment2'
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import CreateComment from './CreateComment'
+// import CreateComment2 from './CreateComment2'
 import DisplayComment from './DisplayComment'
-import PostVotes from './PostVotes'
+// import PostVotes from './PostVotes'
 import cookie from 'react-cookies';
-import EditPost from './EditPost';
-import moment from 'moment';
+// import EditPost from './EditPost';
+// import moment from 'moment';
 
-import ReactQuill from 'react-quill'
-import 'react-quill/dist/quill.snow.css'
-import renderHTML from 'react-render-html'
+// import ReactQuill from 'react-quill'
+// import 'react-quill/dist/quill.snow.css'
+// import renderHTML from 'react-render-html'
 
 class UserComments extends Component{
 

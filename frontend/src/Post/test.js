@@ -1,7 +1,7 @@
 //import { browserHistory } from 'react-router';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 // 
 // /**
 //  * @param {Object} query

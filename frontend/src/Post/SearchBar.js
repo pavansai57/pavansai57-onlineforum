@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import cookie from 'react-cookies';
-import {withRouter} from 'react-router'
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import cookie from 'react-cookies';
+// import {withRouter} from 'react-router'
 
 
-
+var queryString = require('qs');
 
 
 
@@ -20,6 +20,7 @@ class SearchBar extends Component{
         name:"search",
         search:"",
         filter:"",
+        sort:"",
     }
 
     constructor(props)
@@ -28,11 +29,47 @@ class SearchBar extends Component{
         this.handleSearch=this.handleSearch.bind(this)
         this.handleInputChange=this.handleInputChange.bind(this)
         this.handleInputChange2=this.handleInputChange2.bind(this)
+        this.handleInputChange3=this.handleInputChange3.bind(this)
+        this.handleSubmit=this.handleSubmit.bind(this)
+
+        this.handlelink=this.handlelink.bind(this)
+        let searchstring=""
+        if(this.props.location.search[0]=='?')
+        {
+            searchstring=this.props.location.search.slice(1,)
+        }
+        else{
+            searchstring=this.props.location.search
+        }
+        //queryString.parse(this.props.location.search)
+        //queryString.stringify(this.props.location.search)
+        this.state=queryString.parse(searchstring)
     }
 
+    handlelink(event)
+    {
+        event.preventDefault();
+    }
     
     handleValueChange = (mdeState) => {
         this.setState({mdeState});
+    }
+
+    handleSubmit(event)
+    {
+        event.preventDefault();
+        //console.log(event)
+        console.log(this.state)
+        console.log(this.props.history)
+        this.props.history.push(`/forum?${queryString.stringify(this.state)}`)
+        // this.props.parentstate.rerender
+        // this.props.parentstate.forceUpdate()
+        // console.log(this.props.parentstate)
+        // this.props.parentstate.setState({
+        //     a:123,
+        // })
+        window.location.reload()
+        
     }
 
     handleInputChange(event)
@@ -60,6 +97,13 @@ class SearchBar extends Component{
        // this.render()
         //event.target.name=this.state.filter
 
+    }
+
+    handleInputChange3(event)
+    {
+        this.setState({
+            [event.target.name]:event.target.value
+        })
     }
 
     handleSearch(event)
@@ -90,12 +134,45 @@ class SearchBar extends Component{
 
     render()
     {
+        let unansweredcolor="lightgrey"
+        let closedcolor="lightgrey"
+        let answeredcolor="lightgrey"
+        let opencolor="lightgrey"
+
+        let searchstring=""
+        if(this.props.location.search[0]=='?')
+        {
+            searchstring=this.props.location.search.slice(1,)
+        }
+        else{
+            searchstring=this.props.location.search
+        }
+
+        let mystate=queryString.parse(searchstring)
+        if(mystate.sort=="unanswered")
+        {
+            unansweredcolor="white"
+        }
+        else if(mystate.sort=="closed")
+        {
+            closedcolor="white"
+        }
+        else if(mystate.sort=="answered")
+        {
+            answeredcolor="white"
+        }
+        else if(mystate.sort=="open")
+        {
+            opencolor="white"
+        }
+
+
         return(
             <div>
-            <form onSubmit={this.handleSubmit} action="/forum">
+            <form onSubmit={this.handleSubmit} >
                 <div class="container">
                 Orderby: &ensp;     
-                    <select id="sel1" name="ordering">
+                    <select id="sel1" name="ordering" onChange={this.handleInputChange3}>
                         <option value="" selected disabled hidden>Select Sort</option>
                         <option value="-votes">Descending votes</option>
                         <option value="-created">Descending created</option>
@@ -113,9 +190,12 @@ class SearchBar extends Component{
                     User      <input type="radio" name="filter" value="user__username" checked={this.state.filter==="user__username"} onChange={e => this.handleInputChange(e)} ></input> */}
                     {/* Ordering:  votes  <input type="radio" name="ordering1" value="-votes" checked={this.state.ordering=="-votes"} onChange={e => this.handleInputChange(e)}></input> */}
                 </div>
-                
-                
             </form>
+            <br/>
+            <a href="/forum?sort=answered" style={{backgroundColor:answeredcolor}}>answered</a>&ensp;
+            <a href="/forum?sort=unanswered" style={{backgroundColor:unansweredcolor}}>unanswered</a>&ensp;
+            <a href="/forum?sort=open" style={{backgroundColor:opencolor}}>open</a>&ensp;
+            <a href="/forum?sort=closed" style={{backgroundColor:closedcolor}}>closed</a>
             </div>
         );
     }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cookie from 'react-cookies'
 import DisplayPosts from './DisplayPost'
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 //import queryString from 'query-string';
 //import qs from 'qs'
 //const queryString = require('query-string');

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import cookie from 'react-cookies';
 
 
 
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
-import renderHTML from 'react-render-html'
+// import renderHTML from 'react-render-html'
 
 
 

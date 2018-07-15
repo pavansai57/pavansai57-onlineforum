@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import CreateComment from './CreateComment'
+import {Link} from "react-router-dom";
+// import CreateComment from './CreateComment'
 import CreateComment2 from './CreateComment2'
 import DisplayComment from './DisplayComment'
 import PostVotes from './PostVotes'
@@ -8,7 +8,7 @@ import cookie from 'react-cookies';
 import EditPost from './EditPost';
 import moment from 'moment';
 
-import ReactQuill from 'react-quill'
+// import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import renderHTML from 'react-render-html'
 
@@ -367,8 +367,7 @@ class DisplayPostComments extends Component{
 
     render(){
         let owner=null
-        this.state.post?
-        owner=this.state.post.owner:null
+        owner=this.state.post?this.state.post.owner:null
         if (owner!=null)
         {
             //console.log(owner)

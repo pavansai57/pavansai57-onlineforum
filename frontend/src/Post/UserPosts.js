@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import PropTypes from 'prop-types';
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import cookie from 'react-cookies';
 import DisplayPosts from './DisplayPost'
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import cookie from 'react-cookies'
 
 class Signup extends Component{
@@ -49,7 +49,7 @@ class Signup extends Component{
                     alert("enter valid password")
                 }
                 else{
-                    thisComp.props.history.push('/forum')
+                    thisComp.props.history.push('/login')
                 }
             }).catch(function(error){
                 //console.log("error",error)

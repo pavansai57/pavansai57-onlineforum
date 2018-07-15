@@ -177,7 +177,7 @@ JWT_AUTH = {
 
     'JWT_VERIFY': True,
     'JWT_VERIFY_EXPIRATION': True,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=300000),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000000),
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'forum.forumviews.jwt_handler.jwt_response_payload_handler',
 

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
-import logo from './logo.svg';
+// import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+// import logo from './logo.svg';
 import './App.css';
 import Posts from './Post/Posts'
-import Login from './Auth/Login'
+// import Login from './Auth/Login'
 import InputEx from './Auth/InputLogin'
 import DisplayPostComments from './Post/DisplayPostsComments'
 import ShowUser from './Post/User'
 import CreatePost from './Post/CreatePost'
 import SignUp from './Auth/Signup'
-import CreateComment from './Post/CreateComment'
+// import CreateComment from './Post/CreateComment'
 import SearchBar from './Post/SearchBar'
 import MyProfile from './Post/MyProfile'
 import EditProfile from './Post/EditProfile'
@@ -18,8 +18,8 @@ import UserPosts from './Post/UserPosts'
 import UserComments from './Post/UserComments'
 import ShowUsers from './Post/ShowUsers'
 
-import { withRouter } from 'react-router';
-import { addQuery, removeQuery } from './Post/test';
+// import { withRouter } from 'react-router';
+// import { addQuery, removeQuery } from './Post/test';
 
 
 
@@ -55,7 +55,10 @@ class App extends Component {
 */
 
 
-
+rerender=()=>
+{
+  this.render()
+}
 
 
 
@@ -166,7 +169,7 @@ class App extends Component {
           </div>
         </nav>
         <div class="container" style={{textAlign:"center"}}>
-        <Route component={SearchBar}/>
+        <Route render={(props) => (<SearchBar {...props} token={this.state.token} parentstate={thiscomp} timestamp={new Date().toString()} />  )}/>
         </div>
         <hr/>
         {
@@ -175,6 +178,12 @@ class App extends Component {
             <Link to="/forum/createpost/" >Create Post</Link>
             </div>:""
         }
+        {/* <div class="container">
+          <ul class="nav nav-tabs">
+          <li class="nav-item"><Link to="/forum?sort=unanswered" className="nav-link" data-toggle="tab">Unanswered</Link></li>
+          <li class="nav-item"><Link to="/forum?sort=closed" className="nav-link" data-toggle="tab">Closed</Link></li>
+          </ul>
+        </div> */}
         <div>
           <Switch>
           <Route exact path="/" render={(props) => (    <Posts {...props} token={this.state.token} timestamp={new Date().toString()} />  )}/>
