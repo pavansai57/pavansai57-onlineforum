@@ -49,7 +49,7 @@ class Signup extends Component{
                     alert("enter valid password")
                 }
                 else{
-                    thisComp.props.history.push('/login')
+                    thisComp.props.history.push('/forum/login')
                 }
             }).catch(function(error){
                 //console.log("error",error)
