@@ -48,7 +48,7 @@ class CreatePost extends Component{
                 return response.json()
             }).then(function(responseData){
                 //console.log(responseData+"  Asd")
-                thisComp.props.history.push('/forum')
+                thisComp.props.history.push('/forum/posts/'+responseData.post_id)
             }).catch(function(error){
                 console.log("error",error)
             });
