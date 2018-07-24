@@ -136,7 +136,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     def get_postowner(self,obj):
         #ipdb.set_trace()
-        if(obj.user==obj.post.user):
+        if(obj.user==obj.post.user and (self.context['request_user_id'] is not None)):
             return 1
         else:
             return 0
