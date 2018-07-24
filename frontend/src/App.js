@@ -149,7 +149,7 @@ rerender=()=>
             <h1><a class="navbar-brand" href="/forum">Onlineforum</a></h1>
             <div class="nav navbar-nav">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a className="nav-link" href="/forum/users">Users</a></li>
+            <li class="nav-item"><Link className="nav-link" to="/forum/users">Users</Link></li>
             </ul>
             <ul class="navbar-nav">
             {
