@@ -59,7 +59,7 @@ class SearchBar extends Component{
     {
         event.preventDefault();
         //console.log(event)
-        console.log(this.state)
+        //console.log(this.state)
         console.log(this.props.history)
         this.props.history.push(`/forum?${queryString.stringify(this.state)}`)
         // this.props.parentstate.rerender

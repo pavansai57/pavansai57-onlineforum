@@ -533,14 +533,13 @@ class CommentAccept(APIView):
         post=Post.objects.all().get(pk=self.kwargs['pk'])
         comment=Comment.objects.all().get(pk=self.kwargs['id'])
         if post.user==self.request.user:
-            #ipdb.set_trace()
-            # try:
-            #     comment_notaccepted=Comment.objects.all().get(accepted=True)
-            #     #ipdb.set_trace()
-            #     comment_notaccepted.accepted=False
-            #     comment_notaccepted.save()
-            # except Exception as e:
-            #     pass
+            try:
+                #ipdb.set_trace()
+                comment_notaccepted=Comment.objects.all().get(post=post,accepted=True)
+                comment_notaccepted.accepted=False
+                comment_notaccepted.save()
+            except Exception as e:
+                pass
             comment.accepted=True
             post.accepted=True
             #post.closed=True
