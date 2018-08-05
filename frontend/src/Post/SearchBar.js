@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 // import cookie from 'react-cookies';
 // import {withRouter} from 'react-router'
+import {Link} from "react-router-dom";
 
 
 var queryString = require('qs');
@@ -68,7 +69,7 @@ class SearchBar extends Component{
         // this.props.parentstate.setState({
         //     a:123,
         // })
-        window.location.reload()
+        //window.location.reload()
         
     }
 
@@ -192,10 +193,10 @@ class SearchBar extends Component{
                 </div>
             </form>
             <br/>
-            <a href="/forum?sort=answered" style={{backgroundColor:answeredcolor}}>answered</a>&ensp;
-            <a href="/forum?sort=unanswered" style={{backgroundColor:unansweredcolor}}>unanswered</a>&ensp;
-            <a href="/forum?sort=open" style={{backgroundColor:opencolor}}>open</a>&ensp;
-            <a href="/forum?sort=closed" style={{backgroundColor:closedcolor}}>closed</a>
+            <Link to="/forum?sort=answered" style={{backgroundColor:answeredcolor}}>answered</Link>&ensp;
+            <Link to="/forum?sort=unanswered" style={{backgroundColor:unansweredcolor}}>unanswered</Link>&ensp;
+            <Link to="/forum?sort=open" style={{backgroundColor:opencolor}}>open</Link>&ensp;
+            <Link to="/forum?sort=closed" style={{backgroundColor:closedcolor}}>closed</Link>
             </div>
         );
     }

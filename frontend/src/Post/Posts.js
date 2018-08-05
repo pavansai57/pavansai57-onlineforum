@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import cookie from 'react-cookies'
 import DisplayPosts from './DisplayPost'
-
+import {Link} from "react-router-dom";
 // import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 //import queryString from 'query-string';
 //import qs from 'qs'
@@ -94,6 +94,14 @@ class Posts extends Component {
         this.loadPosts();
     }
 
+    componentWillReceiveProps(nextProps)
+    {
+        //console.log(nextProps);
+        this.props=nextProps;
+        //console.log(this.props);
+        this.loadPosts();
+    }
+
     render()
     {
         //searchstring=""
@@ -133,13 +141,13 @@ class Posts extends Component {
                     <div style={{textAlign:"right"}}>
                     {
                         this.state.has_previous?
-                        <a href={this.props.location.pathname+"?"+previousquerystring}>{"<<"}Previous</a>
+                        <Link to={this.props.location.pathname+"?"+previousquerystring}>{"<<"}Previous</Link>
                         :""
                     } 
                     &ensp;&ensp;
                     {   
                         this.state.has_next?
-                        <a href={this.props.location.pathname+"?"+nextquerystring}>Next{">>"}</a>
+                        <Link to={this.props.location.pathname+"?"+nextquerystring}>Next{">>"}</Link>
                         :""
                     }
                     </div>
