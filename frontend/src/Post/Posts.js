@@ -99,6 +99,10 @@ class Posts extends Component {
         //console.log(nextProps);
         this.props=nextProps;
         //console.log(this.props);
+        this.setState({
+            posts:[],
+            loadingdone:0
+        });
         this.loadPosts();
     }
 
